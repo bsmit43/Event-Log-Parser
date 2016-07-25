@@ -1,0 +1,61 @@
+﻿<Page x:Class="WpfApplication1.Search"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        xmlns:wfi="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
+        xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+        xmlns:winformchart="clr-namespace:System.Windows.Forms.DataVisualization.Charting;assembly=System.Windows.Forms.DataVisualization"
+        mc:Ignorable="d"
+      Title="Search"
+       ShowsNavigationUI="False">
+
+    <Grid Width="1777">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1368*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="0,0,-1.2,678.6" Grid.ColumnSpan="2">
+            <Grid Height="819" Margin="0,0,-167.4,0"/>
+        </StackPanel>
+
+        <DataGrid x:Name="DataGrid1" Margin="70,122,0,0" VerticalAlignment="Top" Height="569" Width="1559" SelectionChanged="DataGrid_SelectionChanged" ItemsSource="{Binding}" DataContext="ObservableCollection" BorderThickness="1" FontFamily="Arial" HorizontalAlignment="Left" RowHeight="30" HeadersVisibility="Column" CanUserAddRows="false" ScrollViewer.CanContentScroll="False" UseLayoutRounding="True" Padding="0,0,1,0" MaxColumnWidth="500" AreRowDetailsFrozen="True" MinColumnWidth="50">
+            <DataGrid.BorderBrush>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveBorderColorKey}}"/>
+            </DataGrid.BorderBrush>
+            <DataGrid.AlternatingRowBackground>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.MenuBarColorKey}}"/>
+            </DataGrid.AlternatingRowBackground>
+            <DataGrid.VerticalGridLinesBrush>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ScrollBarColorKey}}"/>
+            </DataGrid.VerticalGridLinesBrush>
+            <DataGrid.HorizontalGridLinesBrush>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ScrollBarColorKey}}"/>
+            </DataGrid.HorizontalGridLinesBrush>
+            <DataGrid.Columns>
+            </DataGrid.Columns>
+        </DataGrid>
+        <ProgressBar x:Name="progressbar" HorizontalAlignment="Left" Height="33" Margin="1432,730,0,0" VerticalAlignment="Top" Width="197" ValueChanged="ProgressBar_ValueChanged"/>
+        <TextBox x:Name="fileTextbox" HorizontalAlignment="Left" Height="23" Text="C:\temp\newevents.txt" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Margin="1013,9,0,0"/>
+        <TextBox x:Name="searchbox" HorizontalAlignment="Left" Height="23" Margin="462,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152"/>
+        <Button  Content="Browse..." HorizontalAlignment="Left" Margin="1165,9,0,0" VerticalAlignment="Top" Width="75" Background="WhiteSmoke" RenderTransformOrigin="0.897,0.768" Click="Button_Click_1" Height="22"/>
+        <Button x:Name="searchbutton" Content="Search" HorizontalAlignment="Left" Margin="619,57,0,0" VerticalAlignment="Top" Width="75" Background="WhiteSmoke" Click="Button_Click" Height="22" IsDefault="True"/>
+        <DatePicker x:Name="datepicker1" Text="D" HorizontalAlignment="Left" Margin="85,54,0,0" VerticalAlignment="Top" Height="25" Width="102"/>
+        <DatePicker x:Name="datepicker2" HorizontalAlignment="Left" Margin="208,54,0,0" VerticalAlignment="Top" Height="25" Width="102" />
+        <Label x:Name="statusLabel"  Content="Ready for Action" HorizontalAlignment="Left" Margin="350,2,0,0" VerticalAlignment="Top" FontSize="24">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+            </Label.Foreground>
+        </Label>
+        <Label x:Name="timelabel" Content="" HorizontalAlignment="Left" Margin="543,730,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <ComboBox x:Name="eventDropdown" HorizontalAlignment="Left" Margin="360,54,0,0" VerticalAlignment="Top" Width="97" Background="WhiteSmoke" Height="24"/>
+        <Menu HorizontalAlignment="Left" Height="30" Margin="-3,84,-1,0" VerticalAlignment="Top" Width="1781" Grid.ColumnSpan="2">
+            <Menu.Background>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.AppWorkspaceColorKey}}"/>
+            </Menu.Background>
+        </Menu>
+        <ComboBox x:Name="resultcountDrpdwn" HorizontalAlignment="Left" Margin="1245,91,0,0" VerticalAlignment="Top" Width="74" Height="23" Background="WhiteSmoke"/>
+
+    </Grid>
+</Page>
